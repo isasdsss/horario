@@ -37,7 +37,7 @@ public class DocenteController {
 			@ModelAttribute("docenteEntity") DocenteEntity docenteEntity,
 			RedirectAttributes atributes) throws Exception 
 	{
-		System.out.println("nome: " + docenteEntity.getNome());
+		
 			ModelAndView mv = new ModelAndView("redirect:/docente");
 			atributes.addFlashAttribute("mensagem", docenteService.save(docenteEntity));
 			return mv;
