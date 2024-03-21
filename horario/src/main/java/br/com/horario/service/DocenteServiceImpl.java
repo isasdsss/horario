@@ -48,5 +48,28 @@ public class DocenteServiceImpl implements DocenteService {
 		
 		return docenteRepository.getOneByIdDocente(idDocente);
 	}
+	
+	@Override
+	public String deleteById(Long idDocente) throws Exception {
+		try
+		{
+			docenteRepository.deleteById(idDocente);
+			this.mensagem = "Docente Excluido com sucesso";
+			
+		} catch(Exception e) {
+			throw new Exception(e.getMessage());
+		}
+		return mensagem;
+	}
 
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 }

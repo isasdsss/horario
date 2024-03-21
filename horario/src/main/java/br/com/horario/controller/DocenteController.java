@@ -53,6 +53,34 @@ public class DocenteController {
 		model.addAttribute("docente", docenteService.getOneByIdDocente(idDocente));
 		
 		return mv;
-	}	
+	}
+	
+	@GetMapping("/excluir_docente/{idDocente}")
+	public ModelAndView delete(ModelMap model,@PathVariable("idDocente") Long idDocente,RedirectAttributes atributes) throws Exception
+	{
+		ModelAndView mv = new ModelAndView("redirect:/docente");
+		model.addAttribute("setores",setorService.findAll());
+		model.addAttribute("mensagem",docenteService.deleteById(idDocente));
+		model.addAttribute("docentes",docenteService.findAll());
+		
+		return mv;
+		
+		
+	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
