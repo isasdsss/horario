@@ -52,7 +52,7 @@
 		<br>
 		<div class="container">
 		<h5 class="card-title">Docentes cadastrados</h5>
-		<table class="table table-sn table-striped table-hover table-bordered">
+		<table id="docente" class="table table-sn table-striped table-hover table-bordered">
 			<thead>
 				<tr>
 					<th>ID</th>
@@ -84,6 +84,15 @@
 			</tbody>
 
 		</table>
+		<div>
+			<script>new DataTable('#docente', {
+    layout: {
+        topStart: {
+            buttons: ['copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5']
+        }
+    }
+});</script>
+		</div>
 	</div>
 	</form>
 
