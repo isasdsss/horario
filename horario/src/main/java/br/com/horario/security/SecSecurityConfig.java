@@ -46,7 +46,7 @@ public class SecSecurityConfig {
 	public void configureGlobal(AuthenticationManagerBuilder auth)
 	   throws Exception {
 		BCryptPasswordEncoder b = new BCryptPasswordEncoder();
-		System.out.println(b.encode("12345"));
+		System.out.println(b.encode("123456"));
 		auth.userDetailsService(userDetailServiceImpl).passwordEncoder(new BCryptPasswordEncoder());
 	}
 	

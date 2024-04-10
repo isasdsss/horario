@@ -10,6 +10,7 @@ public interface DocenteService {
 	List<DocenteEntity> findAll();
 	DocenteEntity getOneByIdDocente (Long idDocente) throws Exception; 
 	String deleteById(Long idDocente) throws Exception;
+	String update(DocenteEntity docenteEntity) throws Exception;
 	
 	
 }

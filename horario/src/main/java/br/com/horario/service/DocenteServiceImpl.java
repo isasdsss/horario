@@ -31,7 +31,28 @@ public class DocenteServiceImpl implements DocenteService {
 			this.mensagem = "Digite o nome do docente.";
 			throw new Exception("Preencha o nome docente.");
 		} else {
-			docenteRepository.saveAndFlush(docenteEntity);
+			docenteRepository.incluirDocente(docenteEntity.getNome(), docenteEntity.getSobrenome(), docenteEntity.getCpf(), docenteEntity.getEmail(), docenteEntity.getSetor().getIdSetor());
+			this.mensagem = "Docente cadastrado com sucesso";
+		}
+		return mensagem;
+	}
+	
+	@Override
+	public String update(DocenteEntity docenteEntity) throws Exception {
+		
+		if (docenteEntity.getNome() == null) {
+			this.mensagem = "Digite o nome do docente.";
+			throw new Exception("Preencha o nome docente.");
+			
+		} else if (docenteEntity.getSobrenome() == null){
+			this.mensagem = "Digite o sobrenome do docente.";
+			throw new Exception("Preencha o sobrenome docente.");
+
+		} else if (docenteEntity.getEmail() == null) {
+			this.mensagem = "Digite o nome do docente.";
+			throw new Exception("Preencha o nome docente.");
+		} else {
+			docenteRepository.alterarDocente(docenteEntity.getNome(), docenteEntity.getSobrenome(), docenteEntity.getCpf(), docenteEntity.getEmail(), docenteEntity.getSetor().getIdSetor(), docenteEntity.getIdDocente());
 			this.mensagem = "Docente cadastrado com sucesso";
 		}
 		return mensagem;
@@ -40,7 +61,7 @@ public class DocenteServiceImpl implements DocenteService {
 	@Override
 	public List<DocenteEntity> findAll() {
 		
-		return docenteRepository.findAll();
+		return docenteRepository.listarDocentes();
 	}
 
 	@Override
@@ -53,7 +74,7 @@ public class DocenteServiceImpl implements DocenteService {
 	public String deleteById(Long idDocente) throws Exception {
 		try
 		{
-			docenteRepository.deleteById(idDocente);
+			docenteRepository.excluirDocente(idDocente);
 			this.mensagem = "Docente Excluido com sucesso";
 			
 		} catch(Exception e) {
